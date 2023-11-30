@@ -7,15 +7,16 @@
 {% block body %}
 <div class="content">
     <h1 style="text-align: center">Bug Ticket Creator</h1>
-    {% if tickets|length < 1 %}
-    <h4 style="text-align: center">There are no tickets. Create one below!</h4>
-    {% else %}
     <div class="form">
         <form action="/" method="POST">
             <input type="text" name="content" id="content">
             <input type="submit" value="Create Ticket">
         </form>
     </div>
+    {% if tickets|length < 1 %}
+    <h4 style="text-align: center">There are no tickets. Create one above!</h4>
+    {% else %}
+    <br>
     <table>
         <tr>
             <th>Ticket</th>

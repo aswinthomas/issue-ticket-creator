@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Bug Ticket Creator</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Update Ticket</h1>
+
+    <div class="form">
+        <form action="/update/{{ticket.id}}" method="POST">
+            <input type="text" name="content" id="content" value="{{ticket.content}}">
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</div>
+{% endblock %}

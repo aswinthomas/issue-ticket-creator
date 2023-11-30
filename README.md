@@ -1,4 +1,4 @@
-# flask-intro
+# issue-ticket-creator
 
-This projects enabling creation of tasks and uses flask.
+This project enables CRUD operation on issue ticket list using Flask.
  

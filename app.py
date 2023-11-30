@@ -22,8 +22,11 @@ class Ticket(db.Model):
 with app.app_context():
     inspector = inspect(db.engine)
     if not inspector.has_table(Ticket.__tablename__):
+        print("DB does not exist, creating...")
         # Create the tables
         db.create_all()
+    else:
+        print(f"DB already exists")
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -36,10 +39,35 @@ def index():
             db.session.commit()
             return redirect('/')
         except:
-            return "Encountered issue adding new ticket"
+            return "Encountered issue adding new ticket. Create a ticket for it :)"
     else:
         tickets = Ticket.query.order_by(Ticket.date_created).all()
         return render_template('index.html', tickets=tickets)
+
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    ticket_to_delete = Ticket.query.get_or_404(id)
+    try:
+        db.session.delete(ticket_to_delete)
+        db.session.commit()
+        return redirect('/')
+    except:
+        return "Encountered issue deleting the ticket. Create a ticket for it :)"
+
+
+@app.route('/update/<int:id>', methods=['POST', 'GET'])
+def update(id):
+    ticket = Ticket.query.get_or_404(id)
+    if request.method == 'POST':
+        ticket.content = request.form['content']
+        try:
+            db.session.commit()
+            return redirect('/')
+        except:
+            return "Encountered issue adding new ticket. Create a ticket for it :)"
+    else:
+        return render_template('update.html', ticket=ticket)
 
 
 if __name__ == "__main__":
