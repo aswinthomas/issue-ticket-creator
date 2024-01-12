@@ -1,5 +1,11 @@
 # issue-ticket-creator
 
+## Technologies Used
+- Flask: A lightweight and powerful Python web framework for building web applications.
+- SQLAlchemy: A SQL toolkit and Object-Relational Mapping (ORM) library for Python, used for database management.
+- HTML/CSS/JavaScript: Standard web technologies for building the user interface and interactivity.
+
+## Project Overview
 This project is a web application that allows users to manage issues effectively. It provides the following key
 features:
 
@@ -25,10 +31,3 @@ To use the application, follow these steps:
     ```
 1. Open a web browser and navigate to the provided URL (typically http://localhost:5000).
 1. You can now start creating, viewing, updating, and deleting issues using the user-friendly web interface.
-
-## Technologies Used
-- Flask: A lightweight and powerful Python web framework for building web applications.
-- SQLAlchemy: A SQL toolkit and Object-Relational Mapping (ORM) library for Python, used for database management.
-- HTML/CSS/JavaScript: Standard web technologies for building the user interface and interactivity.
-
-- Feel free to explore the source code for more details on the implementation and customization options.
